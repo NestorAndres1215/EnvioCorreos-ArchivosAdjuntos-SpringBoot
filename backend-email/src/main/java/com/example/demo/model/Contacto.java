@@ -8,10 +8,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data                   // Genera getters, setters, equals, hashCode, toString
-@Builder                // Permite construir objetos con Contacto.builder()...
-@AllArgsConstructor     // Constructor con todos los campos
-@NoArgsConstructor      // Constructor vacío (importante para frameworks)
+@Data       
+@Builder
+@AllArgsConstructor 
+@NoArgsConstructor      
 public class Contacto {
 
     @NotBlank(message = "El nombre es obligatorio.")
