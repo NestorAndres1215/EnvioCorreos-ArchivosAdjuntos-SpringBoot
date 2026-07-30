@@ -1,19 +1,13 @@
 package com.example.demo.controller;
 
-import com.example.demo.service.EmailService;
-import jakarta.mail.MessagingException;
+import com.example.demo.dto.ContactoRequest;
+import com.example.demo.service.ContactoService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import com.example.demo.model.Contacto;
-import com.example.demo.service.EmailServiceImpl;
-
-import java.io.File;
-import java.io.IOException;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,20 +15,15 @@ import java.io.IOException;
 public class ContactoController {
 
 
-    private final EmailService emailService;
+    private final ContactoService contactoService;
 
-    @PostMapping("/contacto/enviar")
-    public String enviarCorreo(@ModelAttribute Contacto contacto, @RequestParam(value = "archivo", required = false) MultipartFile archivo) throws IOException, MessagingException {
+    @PostMapping(value = "/contacto/enviar", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<String> enviarCorreo(
+            @Valid @RequestPart("contacto") ContactoRequest request,
+            @RequestPart(value = "archivo", required = false) MultipartFile archivo) throws Exception {
 
-        File archivoFisico = null;
+        return ResponseEntity.ok(contactoService.enviar(request, archivo));
 
-        if (archivo != null && !archivo.isEmpty()) {
-            archivoFisico = File.createTempFile("upload-", archivo.getOriginalFilename());
-            archivo.transferTo(archivoFisico);
-        }
-
-        emailService.enviarEmail(contacto, archivoFisico);
-
-        return "Correo enviado correctamente";
     }
+
 }

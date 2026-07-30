@@ -33,11 +33,10 @@
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap");
 
 .home {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   min-height: 100vh;
   background: #080b14;
   display: flex;
@@ -57,7 +56,11 @@
 .orb-1 {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.25) 0%,
+    transparent 70%
+  );
   top: -100px;
   left: -150px;
   animation: float 8s ease-in-out infinite;
@@ -66,7 +69,11 @@
 .orb-2 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.18) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(236, 72, 153, 0.18) 0%,
+    transparent 70%
+  );
   bottom: -80px;
   right: -100px;
   animation: float 10s ease-in-out infinite reverse;
@@ -76,8 +83,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
 }
@@ -94,7 +101,7 @@
 }
 
 .badge {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -109,7 +116,7 @@
 }
 
 .title {
-  font-family: 'Syne', sans-serif;
+  font-family: "Syne", sans-serif;
   display: flex;
   flex-direction: column;
   line-height: 1.05;
@@ -161,13 +168,19 @@
   background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
   cursor: pointer;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 0 0 1px rgba(99,102,241,0.4), 0 20px 40px rgba(99,102,241,0.3);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow:
+    0 0 0 1px rgba(99, 102, 241, 0.4),
+    0 20px 40px rgba(99, 102, 241, 0.3);
 }
 
 .cta-btn:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 0 0 1px rgba(99,102,241,0.6), 0 28px 50px rgba(99,102,241,0.45);
+  box-shadow:
+    0 0 0 1px rgba(99, 102, 241, 0.6),
+    0 28px 50px rgba(99, 102, 241, 0.45);
 }
 
 .cta-btn:active {
@@ -175,7 +188,7 @@
 }
 
 .btn-text {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 1rem;
   font-weight: 500;
   color: #fff;
@@ -186,7 +199,7 @@
 
 .btn-icon {
   font-size: 1.1rem;
-  color: rgba(255,255,255,0.8);
+  color: rgba(255, 255, 255, 0.8);
   transition: transform 0.2s ease;
   position: relative;
   z-index: 1;
@@ -202,7 +215,12 @@
   left: -100%;
   width: 60%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
   transition: left 0.5s ease;
 }
 
@@ -242,12 +260,22 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) scale(1); }
-  50% { transform: translateY(-30px) scale(1.05); }
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-30px) scale(1.05);
+  }
 }
 
 @keyframes pulse {
-  0%, 100% { box-shadow: 0 0 8px rgba(34, 197, 94, 0.6); }
-  50% { box-shadow: 0 0 16px rgba(34, 197, 94, 1); }
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(34, 197, 94, 1);
+  }
 }
 </style>

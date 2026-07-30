@@ -1,0 +1,18 @@
+services:
+
+  backend:
+    build:
+      context: ./backend-email
+    container_name: spring-email-api
+    ports:
+      - "8080:8080"
+
+
+  frontend:
+    build:
+      context: ./frontend-email
+    container_name: vue-email-app
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
